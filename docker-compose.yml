@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - PORT=8000
+      - HOST=0.0.0.0
+      - DATABASE_URL=sqlite:///./resume_matcher.db
+      - DEBUG=True
+    volumes:
+      - app_data:/app/data
+
+  db:
+    image: postgres:15-alpine
+    container_name: postgres_resume_matcher
+    environment:
+      POSTGRES_USER: matcher_user
+      POSTGRES_PASSWORD: matcher_password
+      POSTGRES_DB: ai_resume_matcher
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  app_data:
+  postgres_data:

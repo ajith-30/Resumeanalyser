@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.pytest_cache/
+*.db
+*.sqlite3
+resume_matcher.db
+
+# Node / Frontend
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# Environment variables
+.env
+
+# Logs
+*.log
+
+# IDEs & OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
